@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SyntaxisBio | Unclonable Cellular Identification</title>
+  <!-- Google Fonts for modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    /* CSS Variables for easy customization */
+    :root {
+      --primary-color: #007acc;
+      --primary-hover: #006bb3;
+      --background-color: #ffffff;
+      --light-bg: #f9f9f9;
+      --text-color: #333;
+    }
+    
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    
+    /* Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+    }
+    
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    /* Logo in Nav: using the black version on light backgrounds */
+    .logo img {
+      height: 40px;
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    
+    nav ul li {
+      margin-left: 2rem;
+    }
+    
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    nav ul li a:hover {
+      color: var(--primary-color);
+    }
+    
+    /* Hero Section */
+    header {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      /* Replace 'hero-bg.jpg' with your hero background image */
+      background: linear-gradient(rgba(0,122,204,0.7), rgba(0,122,204,0.7)), 
+                  url('images/hero-bg.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    
+    /* Logo in Hero: using the white version on dark backgrounds */
+    .hero-logo {
+      max-height: 80px;
+      margin-bottom: 1rem;
+    }
+    
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    
+    header p {
+      font-size: 1.25rem;
+      color: #fff;
+      margin-bottom: 2rem;
+    }
+    
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+    }
+    
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+    }
+    
+    /* Section Styling */
+    section {
+      padding: 4rem 2rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+    
+    section h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--primary-color);
+    }
+    
+    section p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.125rem;
+      text-align: center;
+    }
+    
+    /* Technology Section - Two Column Layout */
+    .tech-content {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    
+    .tech-content img {
+      flex: 1 1 500px;
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    
+    .tech-text {
+      flex: 1 1 400px;
+    }
+    
+    /* Services Section - Grid Layout */
+    #services {
+      background-color: var(--light-bg);
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .service-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .service-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
+    
+    .service-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+    
+    .service-card p {
+      font-size: 1rem;
+    }
+    
+    /* Footer Styling */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    footer p {
+      font-size: 0.9rem;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      nav .container {
+        flex-direction: column;
+      }
+      nav ul {
+        justify-content: center;
+        margin-top: 0.5rem;
+      }
+      nav ul li {
+        margin-left: 1rem;
+      }
+      .tech-content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <!-- Navigation Logo: Use your black version (place in images folder) -->
+      <a href="#" class="logo">
+         <img src="images/logo-black.png" alt="SyntaxisBio Logo">
+      </a>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#technology">Technology</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header>
+    <div class="container">
+      <!-- Hero Logo: Use your white version (place in images folder) -->
+      <img src="images/logo-white.png" alt="SyntaxisBio Logo" class="hero-logo">
+      <p>Unclonable Cellular Identification for Reliable Biomedical Research</p>
+      <a class="btn-primary" href="#about">Discover More</a>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>
+        SyntaxisBio addresses a critical challenge in biomedical research – the reliable identification of cell line age and division/passage history.
+        Our mission is to enhance reproducibility and reliability by ensuring that every cell line’s provenance and age are accurately tracked.
+      </p>
+    </div>
+  </section>
+
+  <!-- Technology Section -->
+  <section id="technology">
+    <div class="container">
+      <h2>Our Technology</h2>
+      <div class="tech-content">
+        <!-- Technology Image: Replace with your technology illustration (e.g., tech-image.jpg) -->
+        <img src="images/tech-image.png" alt="Genetic PUFs" width=300>
+        <div class="tech-text">
+          <p>
+            Leveraging advances in synthetic biology and genome editing, we pioneer a technology based on <strong>genetic PUFs</strong> – a novel approach inspired by the semiconductor industry.
+            By combining molecular barcoding with CRISPR-induced DNA repair mechanisms, we embed unique, robust, and unclonable identifiers into cell lines.
+          </p>
+          <p>
+            This breakthrough not only tracks cell line provenance but also creates a “cellular clock” using advanced machine learning algorithms,
+            ensuring that every experimental outcome is reproducible and reliable.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        <!-- Service Card 1: Cell Line Authentication -->
+        <div class="service-card">
+          <!-- Replace with your provided image (e.g., cell-line-auth.jpg) -->
+          <img src="images/cell-line-auth.png" alt="Cell Line Authentication">
+          <h3>Cell Line Authentication</h3>
+          <p>Ensure accurate identification and provenance of every cell line to guarantee the integrity of your research.</p>
+        </div>
+        <!-- Service Card 2: Molecular Barcoding -->
+        <div class="service-card">
+          <!-- Replace with your provided image (e.g., molecular-barcoding.jpg) -->
+          <img src="images/molecular-barcoding.png" alt="Molecular Barcoding">
+          <h3>Molecular Barcoding</h3>
+          <p>Embed unique genetic identifiers into cell lines for robust tracking of cellular age and division history.</p>
+        </div>
+        <!-- Service Card 3: CRISPR Editing -->
+        <div class="service-card">
+          <!-- Replace with your provided image (e.g., crispr-editing.jpg) -->
+          <img src="images/crispr-editing.png" alt="CRISPR Editing">
+          <h3>CRISPR Editing</h3>
+          <p>Utilize precise CRISPR-induced DNA repair mechanisms to integrate unclonable identifiers seamlessly.</p>
+        </div>
+        <!-- Service Card 4: Data Analytics & Machine Learning -->
+        <div class="service-card">
+          <!-- Replace with your provided image (e.g., data-analytics.jpg) -->
+          <img src="images/data-analytics.png" alt="Data Analytics &amp; Machine Learning">
+          <h3>Data Analytics</h3>
+          <p>Leverage advanced machine learning algorithms to monitor the temporal drift of genetic PUFs, forming a reliable cellular clock.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section id="benefits">
+    <div class="container">
+      <h2>Benefits</h2>
+      <p>
+        Our innovative approach directly addresses issues like cell line misidentification and contamination,
+        ensuring high-quality and reproducible biomedical research outcomes.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" style="background-color: var(--light-bg);">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <p>
+        Interested in learning more or collaborating? Reach out to us!
+      </p>
+      <p>Email: <a href="mailto:info@syntaxisbio.com">info@syntaxisbio.com</a></p>
+      <p>Phone: +1 (214) 632-5893</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 SyntaxisBio. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
