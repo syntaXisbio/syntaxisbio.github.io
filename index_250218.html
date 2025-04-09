@@ -31,14 +31,6 @@
       line-height: 1.6;
     }
     
-    /* Fluid Container */
-    .container {
-      width: 90%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 0 2%;
-    }
-    
     /* Navigation Bar */
     nav {
       position: fixed;
@@ -46,7 +38,7 @@
       left: 0;
       width: 100%;
       background: rgba(255, 255, 255, 0.95);
-      padding: 1rem 2%;
+      padding: 1rem 2rem;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
       z-index: 1000;
     }
@@ -57,10 +49,9 @@
       justify-content: space-between;
     }
     
-    /* Logo Scaling - dynamic using clamp() */
+    /* Logo in Nav: using the black version on light backgrounds */
     .logo img {
-      width: clamp(80px, 10vw, 150px);
-      height: auto;
+      height: 40px;
     }
     
     nav ul {
@@ -95,26 +86,23 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding-top: 60px; /* ensure content doesn't hide behind nav */
     }
     
-    /* Hero Logo: using the white version on dark backgrounds */
+    /* Logo in Hero: using the white version on dark backgrounds */
     .hero-logo {
-      width: clamp(80px, 15vw, 120px);
-      height: auto;
+      max-height: 80px;
       margin-bottom: 1rem;
     }
     
-    /* Fluid Typography Using Clamp */
     header h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: 3rem;
       margin-bottom: 1rem;
       color: #fff;
     }
     
     header p {
-      font-size: clamp(1rem, 3vw, 1.25rem);
+      font-size: 1.25rem;
       color: #fff;
       margin-bottom: 2rem;
     }
@@ -123,11 +111,11 @@
       display: inline-block;
       background-color: var(--primary-color);
       color: #fff;
-      padding: clamp(0.65rem, 2vw, 0.75rem) clamp(1.2rem, 3vw, 1.5rem);
+      padding: 0.75rem 1.5rem;
       border: none;
       border-radius: 25px;
       text-decoration: none;
-      font-size: clamp(0.9rem, 2vw, 1rem);
+      font-size: 1rem;
       transition: background 0.3s ease;
     }
     
@@ -137,12 +125,17 @@
     
     /* Section Styling */
     section {
-      padding: 4rem 2%;
+      padding: 4rem 2rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: auto;
     }
     
     section h2 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-size: 2.5rem;
       margin-bottom: 1rem;
       text-align: center;
       color: var(--primary-color);
@@ -151,7 +144,7 @@
     section p {
       max-width: 800px;
       margin: auto;
-      font-size: clamp(1rem, 2.5vw, 1.125rem);
+      font-size: 1.125rem;
       text-align: center;
     }
     
@@ -209,12 +202,12 @@
     .service-card h3 {
       font-family: 'Montserrat', sans-serif;
       margin-bottom: 0.5rem;
-      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      font-size: 1.5rem;
       color: var(--primary-color);
     }
     
     .service-card p {
-      font-size: clamp(0.9rem, 2vw, 1rem);
+      font-size: 1rem;
     }
     
     /* Footer Styling */
@@ -226,36 +219,26 @@
     }
     
     footer p {
-      font-size: clamp(0.8rem, 2vw, 0.9rem);
+      font-size: 0.9rem;
     }
     
-    /* Media Queries for Adjustments */
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
       nav .container {
         flex-direction: column;
       }
       nav ul {
-        flex-direction: column;
+        justify-content: center;
         margin-top: 0.5rem;
       }
       nav ul li {
-        margin: 0.5rem 0;
+        margin-left: 1rem;
       }
       .tech-content {
         flex-direction: column;
-      }
-    }
-    
-    /* Extra adjustments for very small devices */
-    @media (max-width: 480px) {
-      header {
-        padding-top: 80px;
-      }
-      section {
-        padding: 3rem 1%;
-      }
-      .services-grid {
-        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -305,7 +288,7 @@
       <h2>Our Technology</h2>
       <div class="tech-content">
         <!-- Technology Image -->
-        <img src="images/tech-image.png" alt="Genetic PUFs">
+        <img src="images/tech-image.png" alt="Genetic PUFs" width=300>
         <div class="tech-text">
           <p>
             Leveraging advances in synthetic biology and genome editing, we pioneer a technology based on <strong>genetic PUFs</strong> – a novel approach inspired by the semiconductor industry.
@@ -384,3 +367,4 @@
   </footer>
 </body>
 </html>
+
