@@ -162,8 +162,8 @@
   <style>
     /* CSS Variables for easy customization */
     :root {
-      --primary-color: #2dd4bf;
-      --primary-hover: #14b8a6;
+      --primary-color: #0066cc;
+      --primary-hover: #0052a3;
       --secondary-color: #8b5cf6;
       --accent-color: #10b981;
       --background-color: #ffffff;
@@ -696,6 +696,12 @@
       object-fit: cover;
       margin-bottom: 1rem;
       border: 3px solid var(--primary-color);
+      filter: grayscale(100%) contrast(1.2);
+      transition: filter 0.3s ease;
+    }
+    
+    .team-card:hover img {
+      filter: grayscale(80%) contrast(1.1);
     }
     
     .team-card h4 {
@@ -989,8 +995,6 @@
     <div class="container">
       <h2>Our Technology</h2>
       <div class="tech-content">
-        <!-- Technology Image -->
-        <img src="images/tech-image.png" alt="Genetic PUFs Technology Diagram" loading="lazy" width="600" height="auto">
         <div class="tech-text">
           <p>
             Leveraging advances in synthetic biology and genome editing, we pioneer a technology based on <strong>genetic PUFs</strong> – a novel approach inspired by the semiconductor industry.
@@ -1234,8 +1238,7 @@
           
           <div class="info-item">
             <strong>Office Hours:</strong><br>
-            Monday - Friday: 9:00 AM - 5:00 PM CT<br>
-            Response within 24 hours
+            Monday - Friday: 9:00 AM - 5:00 PM CT
           </div>
         </div>
       </div>
