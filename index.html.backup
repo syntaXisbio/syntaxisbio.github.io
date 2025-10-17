@@ -61,7 +61,7 @@
       {
         "@type": "Person",
         "name": "Dr. Yiorgos Makris",
-        "jobTitle": "Chief Technical Advisor",
+        "jobTitle": "Chief Strategy Officer",
         "worksFor": {
           "@type": "Organization",
           "name": "SyntaxisBio"
@@ -274,104 +274,7 @@
       color: var(--primary-color);
       background-color: rgba(45, 212, 191, 0.1);
     }
-
-    /* News & Press Section */
-    .news-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .news-card {
-      background: #fff;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--border-color);
-    }
-
-    .news-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-    }
-
-    .news-card-header {
-      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-      padding: 1rem 1.5rem;
-      color: #fff;
-    }
-
-    .news-card-header .publication {
-      font-size: 0.9rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 0.25rem;
-      opacity: 0.9;
-    }
-
-    .news-card-header .date {
-      font-size: 0.85rem;
-      opacity: 0.8;
-    }
-
-    .news-card-body {
-      padding: 1.5rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .news-card-body h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-color);
-      margin-bottom: 1rem;
-      line-height: 1.4;
-    }
-
-    .news-card-body p {
-      font-size: 0.95rem;
-      color: var(--text-light);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      flex-grow: 1;
-    }
-
-    .news-card-footer {
-      margin-top: auto;
-    }
-
-    .news-card-footer a {
-      display: inline-flex;
-      align-items: center;
-      color: var(--primary-color);
-      font-weight: 600;
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
-    }
-
-    .news-card-footer a:hover {
-      color: var(--accent-color);
-      transform: translateX(3px);
-    }
-
-    .news-card-footer a::after {
-      content: '→';
-      margin-left: 0.5rem;
-      transition: margin-left 0.3s ease;
-    }
-
-    .news-card-footer a:hover::after {
-      margin-left: 0.75rem;
-    }
-
+    
     /* Mobile Menu Toggle */
     .menu-toggle {
       display: none;
@@ -1027,7 +930,6 @@
         <li><a href="#technology">Technology</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#research">Research</a></li>
-        <li><a href="#news">News</a></li>
         <li><a href="#benefits">Benefits</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1074,7 +976,7 @@
         <div class="team-card">
           <img src="images/YiorgosMakris.jpg" alt="Dr. Yiorgos Makris" loading="lazy" width="120" height="120">
           <h4>Dr. Yiorgos Makris</h4>
-          <div class="credentials">Chief Technical Advisor</div>
+          <div class="credentials">Chief Strategy Officer</div>
           <p>Expert in hardware security and PUF technologies, translating semiconductor security concepts to biological systems.</p>
         </div>
         <!-- Team Member 3 -->
@@ -1166,75 +1068,6 @@
           <div class="journal">Advanced Science, 2025</div>
           <p>Zhou Z, Kang T, Chen J, Doctor Y, Camposagrado JG, Makris Y, Pertsemlidis A, Bleris L. PMID: 39485605. DOI: 10.1002/advs.202407386.</p>
           <p>Novel biosecurity primitives using polymerase-based genetic PUFs for cellular identification.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- News & Press Section -->
-  <section id="news" style="background-color: var(--light-bg);">
-    <div class="container">
-      <h2>News & Press</h2>
-      <p>Recent coverage of SyntaxisBio's genetic PUF technology and cellular identification innovations.</p>
-      <div class="news-grid">
-        <!-- News Card 1 -->
-        <div class="news-card">
-          <div class="news-card-header">
-            <div class="publication">GEN - Genetic Engineering & Biotechnology News</div>
-            <div class="date">October 15, 2025</div>
-          </div>
-          <div class="news-card-body">
-            <h3>Physical Unclonable Functions Can ID Unique Cell Lines</h3>
-            <p>Coverage of SyntaxisBio's innovative use of physical unclonable functions (PUFs) to create unique identifiers for cell line authentication and tracking in biomedical research.</p>
-            <div class="news-card-footer">
-              <a href="https://www.genengnews.com/topics/bioprocessing/physical-unclonable-functions-can-id-unique-cell-lines/" target="_blank" rel="noopener noreferrer">Read Article</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- News Card 2 -->
-        <div class="news-card">
-          <div class="news-card-header">
-            <div class="publication">Dallas Innovates</div>
-            <div class="date">September 27, 2025</div>
-          </div>
-          <div class="news-card-body">
-            <h3>UT Dallas Researchers 'Barcode' Engineered Cells with Patent-Pending Tech to Protect Biotech IP</h3>
-            <p>When scientists grow and engineer cells for research, those cells can be accidentally mislabeled, contaminated, or even copied without permission. The consequences are costly: industry-wide, such errors lead to billions of dollars in losses each year and put critical discoveries at risk.</p>
-            <div class="news-card-footer">
-              <a href="https://dallasinnovates.com/ut-dallas-researchers-barcode-engineered-cells-with-patent-pending-tech-to-protect-biotech-ip/" target="_blank" rel="noopener noreferrer">Read Article</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- News Card 3 -->
-        <div class="news-card">
-          <div class="news-card-header">
-            <div class="publication">BioEngineer.org</div>
-            <div class="date">September 5, 2025</div>
-          </div>
-          <div class="news-card-body">
-            <h3>Technological Breakthrough Enhances Protection for Engineered Cells</h3>
-            <p>Genetically engineered cell lines have become essential tools in biomedical research, underpinning advancements in medical therapies, vaccines, and scientific discoveries. However, the potential for misidentification and unauthorized use of these engineered cell lines represents a significant dilemma within the field.</p>
-            <div class="news-card-footer">
-              <a href="https://bioengineer.org/technological-breakthrough-enhances-protection-for-engineered-cells/" target="_blank" rel="noopener noreferrer">Read Article</a>
-            </div>
-          </div>
-        </div>
-
-        <!-- News Card 4 -->
-        <div class="news-card">
-          <div class="news-card-header">
-            <div class="publication">Phys.org</div>
-            <div class="date">September 3, 2025</div>
-          </div>
-          <div class="news-card-body">
-            <h3>Researchers Advance Technology for Protecting Engineered Cells</h3>
-            <p>Genetically engineered cell lines used in biomedical research have long been prone to misidentification and unauthorized use, wasting billions of dollars each year and jeopardizing critical scientific discoveries.</p>
-            <div class="news-card-footer">
-              <a href="https://phys.org/news/2025-09-advance-technology-cells.html" target="_blank" rel="noopener noreferrer">Read Article</a>
-            </div>
-          </div>
         </div>
       </div>
     </div>
