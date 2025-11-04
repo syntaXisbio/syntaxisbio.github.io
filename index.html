@@ -639,34 +639,59 @@
       gap: 2rem;
       margin-top: 2rem;
     }
-    
+
     .research-card {
       background: #fff;
-      padding: 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      border-left: 4px solid var(--primary-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border-color);
     }
-    
-    .research-card h4 {
+
+    .research-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .research-card-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      padding: 1rem 1.5rem;
+      color: #fff;
+    }
+
+    .research-card-header .journal {
+      font-style: italic;
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .research-card-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .research-card-body h4 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: clamp(1.1rem, 2.5vw, 1.3rem);
       font-weight: 600;
       color: var(--text-color);
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
     }
-    
-    .research-card .journal {
-      font-style: italic;
-      color: var(--primary-color);
-      font-size: 0.95rem;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-    }
-    
-    .research-card p {
+
+    .research-card-body p {
       font-size: clamp(0.85rem, 2vw, 0.95rem);
       line-height: 1.6;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+
+    .research-card-body p:last-child {
+      margin-bottom: 0;
     }
     
     /* Contact Form */
@@ -1141,31 +1166,43 @@
   </section>
 
   <!-- Research Section -->
-  <section id="research" style="background-color: var(--light-bg);">
+  <section id="research">
     <div class="container">
       <h2>Research & Publications</h2>
       <p>Our cutting-edge research in genetic PUFs and cellular identification has contributed to advancing biomedical research standards.</p>
       <div class="research-grid">
         <!-- Research Card 1 - Original Paper -->
         <div class="research-card">
-          <h4>Genetic physical unclonable functions in human cells</h4>
-          <div class="journal">Science Advances, 2022</div>
-          <p>Li Y, Bidmeshki MM, Kang T, Nowak CM, Makris Y, Bleris L. PMID: 35507652. DOI: 10.1126/sciadv.abm4106.</p>
-          <p>Pioneering work introducing genetic PUFs in human cells for unclonable cellular identification.</p>
+          <div class="research-card-header">
+            <div class="journal">Science Advances, 2022</div>
+          </div>
+          <div class="research-card-body">
+            <h4>Genetic physical unclonable functions in human cells</h4>
+            <p>Li Y, Bidmeshki MM, Kang T, Nowak CM, Makris Y, Bleris L. PMID: 35507652. DOI: 10.1126/sciadv.abm4106.</p>
+            <p>Pioneering work introducing genetic PUFs in human cells for unclonable cellular identification.</p>
+          </div>
         </div>
         <!-- Research Card 2 -->
         <div class="research-card">
-          <h4>The history, landscape, and outlook of human cell line authentication and security</h4>
-          <div class="journal">SLAS Discovery, 2024</div>
-          <p>Harbut E, Makris Y, Pertsemlidis A, Bleris L. PMID: 39522879. DOI: 10.1016/j.slasd.2024.100193.</p>
-          <p>A comprehensive review of cell line authentication challenges and security solutions in biomedical research.</p>
+          <div class="research-card-header">
+            <div class="journal">SLAS Discovery, 2024</div>
+          </div>
+          <div class="research-card-body">
+            <h4>The history, landscape, and outlook of human cell line authentication and security</h4>
+            <p>Harbut E, Makris Y, Pertsemlidis A, Bleris L. PMID: 39522879. DOI: 10.1016/j.slasd.2024.100193.</p>
+            <p>A comprehensive review of cell line authentication challenges and security solutions in biomedical research.</p>
+          </div>
         </div>
         <!-- Research Card 3 -->
         <div class="research-card">
-          <h4>Biosecurity Primitive: Polymerase X-based Genetic Physical Unclonable Functions</h4>
-          <div class="journal">Advanced Science, 2025</div>
-          <p>Zhou Z, Kang T, Chen J, Doctor Y, Camposagrado JG, Makris Y, Pertsemlidis A, Bleris L. PMID: 39485605. DOI: 10.1002/advs.202407386.</p>
-          <p>Novel biosecurity primitives using polymerase-based genetic PUFs for cellular identification.</p>
+          <div class="research-card-header">
+            <div class="journal">Advanced Science, 2025</div>
+          </div>
+          <div class="research-card-body">
+            <h4>Biosecurity Primitive: Polymerase X-based Genetic Physical Unclonable Functions</h4>
+            <p>Zhou Z, Kang T, Chen J, Doctor Y, Camposagrado JG, Makris Y, Pertsemlidis A, Bleris L. PMID: 39485605. DOI: 10.1002/advs.202407386.</p>
+            <p>Novel biosecurity primitives using polymerase-based genetic PUFs for cellular identification.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -1181,7 +1218,7 @@
         <div class="news-card">
           <div class="news-card-header">
             <div class="publication">GEN - Genetic Engineering & Biotechnology News</div>
-            <div class="date">October 15, 2025</div>
+            <div class="date">Oct 15, 2025</div>
           </div>
           <div class="news-card-body">
             <h3>Physical Unclonable Functions Can ID Unique Cell Lines</h3>
@@ -1196,7 +1233,7 @@
         <div class="news-card">
           <div class="news-card-header">
             <div class="publication">Dallas Innovates</div>
-            <div class="date">September 27, 2025</div>
+            <div class="date">Sep 27, 2025</div>
           </div>
           <div class="news-card-body">
             <h3>UT Dallas Researchers 'Barcode' Engineered Cells with Patent-Pending Tech to Protect Biotech IP</h3>
@@ -1211,7 +1248,7 @@
         <div class="news-card">
           <div class="news-card-header">
             <div class="publication">BioEngineer.org</div>
-            <div class="date">September 5, 2025</div>
+            <div class="date">Sep 5, 2025</div>
           </div>
           <div class="news-card-body">
             <h3>Technological Breakthrough Enhances Protection for Engineered Cells</h3>
@@ -1226,7 +1263,7 @@
         <div class="news-card">
           <div class="news-card-header">
             <div class="publication">Phys.org</div>
-            <div class="date">September 3, 2025</div>
+            <div class="date">Sep 3, 2025</div>
           </div>
           <div class="news-card-body">
             <h3>Researchers Advance Technology for Protecting Engineered Cells</h3>
