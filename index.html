@@ -580,56 +580,56 @@
       gap: 2rem;
       margin-top: 2rem;
     }
-    
+
     .service-card {
       background: #fff;
-      padding: 2rem;
-      border-radius: 16px;
-      border: 1px solid var(--border-color);
-      text-align: center;
-      transition: all 0.3s ease;
-      position: relative;
+      border-radius: 12px;
       overflow: hidden;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--border-color);
     }
-    
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-    
+
     .service-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
     }
-    
-    .service-card:hover::before {
-      transform: scaleX(1);
+
+    .service-card-header {
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      padding: 1rem 1.5rem;
+      text-align: center;
+      color: #fff;
     }
-    
-    .service-card img {
+
+    .service-card-header h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.25rem, 3vw, 1.5rem);
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .service-card-body {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .service-card-body img {
       width: 100%;
       height: auto;
       border-radius: 4px;
       margin-bottom: 1rem;
     }
-    
-    .service-card h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      margin-bottom: 1rem;
-      font-size: clamp(1.25rem, 3vw, 1.5rem);
-      font-weight: 600;
-      color: var(--text-color);
-    }
-    
-    .service-card p {
+
+    .service-card-body p {
       font-size: clamp(0.9rem, 2vw, 1rem);
+      line-height: 1.6;
+      color: var(--text-light);
     }
     
     /* Research Section */
@@ -1139,27 +1139,43 @@
       <div class="services-grid">
         <!-- Service Card 1: Cell Line Authentication -->
         <div class="service-card">
-          <img src="images/cell-line-auth.png" alt="Cell Line Authentication Service" loading="lazy" width="300" height="200">
-          <h3>Cell Line Authentication</h3>
-          <p>Ensuring accurate identification and provenance of every cell line to guarantee the integrity of your research.</p>
+          <div class="service-card-header">
+            <h3>Cell Line Authentication</h3>
+          </div>
+          <div class="service-card-body">
+            <img src="images/cell-line-auth.png" alt="Cell Line Authentication Service" loading="lazy" width="300" height="200">
+            <p>Ensuring accurate identification and provenance of every cell line to guarantee the integrity of your research.</p>
+          </div>
         </div>
         <!-- Service Card 2: Molecular Barcoding -->
         <div class="service-card">
-          <img src="images/molecular-barcoding.png" alt="Molecular Barcoding Service" loading="lazy" width="300" height="200">
-          <h3>Molecular Barcoding</h3>
-          <p>Embedding unique genetic identifiers into cell lines for robust tracking of cellular age and division history.</p>
+          <div class="service-card-header">
+            <h3>Molecular Barcoding</h3>
+          </div>
+          <div class="service-card-body">
+            <img src="images/molecular-barcoding.png" alt="Molecular Barcoding Service" loading="lazy" width="300" height="200">
+            <p>Embedding unique genetic identifiers into cell lines for robust tracking of cellular age and division history.</p>
+          </div>
         </div>
         <!-- Service Card 3: CRISPR Editing -->
         <div class="service-card">
-          <img src="images/crispr-editing.png" alt="CRISPR Editing Service" loading="lazy" width="300" height="200">
-          <h3>CRISPR Editing</h3>
-          <p>Utilizing precise CRISPR-induced DNA repair mechanisms to integrate unclonable identifiers seamlessly.</p>
+          <div class="service-card-header">
+            <h3>CRISPR Editing</h3>
+          </div>
+          <div class="service-card-body">
+            <img src="images/crispr-editing.png" alt="CRISPR Editing Service" loading="lazy" width="300" height="200">
+            <p>Utilizing precise CRISPR-induced DNA repair mechanisms to integrate unclonable identifiers seamlessly.</p>
+          </div>
         </div>
         <!-- Service Card 4: Data Analytics & Machine Learning -->
         <div class="service-card">
-          <img src="images/data-analytics.png" alt="Data Analytics &amp; Machine Learning Service" loading="lazy" width="300" height="200">
-          <h3>Data Analytics</h3>
-          <p>Leveraging advanced machine learning algorithms to monitor the temporal drift of genetic PUFs, forming a reliable cellular clock.</p>
+          <div class="service-card-header">
+            <h3>Data Analytics</h3>
+          </div>
+          <div class="service-card-body">
+            <img src="images/data-analytics.png" alt="Data Analytics &amp; Machine Learning Service" loading="lazy" width="300" height="200">
+            <p>Leveraging advanced machine learning algorithms to monitor the temporal drift of genetic PUFs, forming a reliable cellular clock.</p>
+          </div>
         </div>
       </div>
     </div>
