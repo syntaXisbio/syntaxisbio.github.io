@@ -782,7 +782,34 @@
     .contact-info .info-item strong {
       color: var(--primary-color);
     }
-    
+
+    /* Form Messages */
+    #form-messages {
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: 4px;
+      display: none;
+    }
+
+    #form-messages.success {
+      display: block;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      color: #155724;
+    }
+
+    #form-messages.error {
+      display: block;
+      background-color: #f8d7da;
+      border: 1px solid #f5c6cb;
+      color: #721c24;
+    }
+
+    .btn-submit:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
     @media (max-width: 768px) {
       .contact-content {
         grid-template-columns: 1fr;
@@ -1395,22 +1422,24 @@
         <!-- Contact Form -->
         <div class="contact-form">
           <h3>Get in Touch</h3>
-          <form action="#" method="POST">
+          <form id="contact-form" action="https://formspree.io/f/xaqdndjk" method="POST">
+            <div id="form-messages"></div>
+
             <div class="form-group">
               <label for="name">Full Name *</label>
               <input type="text" id="name" name="name" required>
             </div>
-            
+
             <div class="form-group">
               <label for="email">Email Address *</label>
               <input type="email" id="email" name="email" required>
             </div>
-            
+
             <div class="form-group">
               <label for="organization">Organization</label>
               <input type="text" id="organization" name="organization">
             </div>
-            
+
             <div class="form-group">
               <label for="inquiry-type">Inquiry Type</label>
               <select id="inquiry-type" name="inquiry-type">
@@ -1422,12 +1451,12 @@
                 <option value="other">Other</option>
               </select>
             </div>
-            
+
             <div class="form-group">
               <label for="message">Message *</label>
               <textarea id="message" name="message" placeholder="Tell us about your research needs or how we can help..." required></textarea>
             </div>
-            
+
             <button type="submit" class="btn-submit">Send Message</button>
           </form>
         </div>
@@ -1575,7 +1604,7 @@
     function toggleFAQ(element) {
       const answer = element.nextElementSibling;
       const icon = element.querySelector('.icon');
-      
+
       // Close other open FAQs
       document.querySelectorAll('.faq-question.active').forEach(activeQuestion => {
         if (activeQuestion !== element) {
@@ -1584,17 +1613,73 @@
           activeQuestion.querySelector('.icon').textContent = '+';
         }
       });
-      
+
       // Toggle current FAQ
       element.classList.toggle('active');
       answer.classList.toggle('active');
-      
+
       if (element.classList.contains('active')) {
         icon.textContent = '×';
       } else {
         icon.textContent = '+';
       }
     }
+
+    // Contact form submission handling
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contact-form');
+      const formMessages = document.getElementById('form-messages');
+      const submitButton = form.querySelector('.btn-submit');
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        // Disable submit button
+        submitButton.disabled = true;
+        submitButton.textContent = 'Sending...';
+
+        // Get form data
+        const formData = new FormData(form);
+
+        // Send form data
+        fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => {
+          if (response.ok) {
+            // Success
+            formMessages.className = 'success';
+            formMessages.textContent = 'Thank you for your message! We will get back to you soon.';
+            form.reset();
+          } else {
+            // Error from server
+            return response.json().then(data => {
+              if (data.errors) {
+                formMessages.className = 'error';
+                formMessages.textContent = data.errors.map(error => error.message).join(', ');
+              } else {
+                formMessages.className = 'error';
+                formMessages.textContent = 'Oops! There was a problem submitting your form. Please try again.';
+              }
+            });
+          }
+        })
+        .catch(error => {
+          // Network error
+          formMessages.className = 'error';
+          formMessages.textContent = 'Oops! There was a problem submitting your form. Please try again.';
+        })
+        .finally(() => {
+          // Re-enable submit button
+          submitButton.disabled = false;
+          submitButton.textContent = 'Send Message';
+        });
+      });
+    });
   </script>
 </body>
 </html>
